@@ -1,0 +1,54 @@
+{
+    "logs": [
+        {
+            "method": "GET",
+            "url": "/",
+            "time": 1584476458328
+        },
+        {
+            "method": "GET",
+            "url": "/favicon.ico",
+            "time": 1584476458433
+        },
+        {
+            "method": "GET",
+            "url": "/requests",
+            "time": 1584476463188
+        },
+        {
+            "method": "GET",
+            "url": "/favicon.ico",
+            "time": 1584476463264
+        },
+        {
+            "method": "GET",
+            "url": "/about",
+            "time": 1584476472832
+        },
+        {
+            "method": "GET",
+            "url": "/favicon.ico",
+            "time": 1584476472924
+        },
+        {
+            "method": "PATCH",
+            "url": "/about",
+            "time": 1584476482770
+        },
+        {
+            "method": "PUT",
+            "url": "/news",
+            "time": 1584476488610
+        },
+        {
+            "method": "DELETE",
+            "url": "/news",
+            "time": 1584476491590
+        },
+        {
+            "method": "POST",
+            "url": "/contacts",
+            "time": 1584476510291
+        }
+    ]
+}
