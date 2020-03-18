@@ -57,18 +57,13 @@
         },
         {
             "method": "GET",
-            "url": "/requests",
-            "time": 1584545665904
+            "url": "/test111",
+            "time": 1584550667572
         },
         {
             "method": "GET",
             "url": "/favicon.ico",
-            "time": 1584545665959
-        },
-        {
-            "method": "DELETE",
-            "url": "/about",
-            "time": 1584545736980
+            "time": 1584550667637
         }
     ]
 }
