@@ -3,52 +3,72 @@
         {
             "method": "GET",
             "url": "/",
-            "time": 1584476458328
+            "time": 1584545067306
         },
         {
             "method": "GET",
             "url": "/favicon.ico",
-            "time": 1584476458433
-        },
-        {
-            "method": "GET",
-            "url": "/requests",
-            "time": 1584476463188
-        },
-        {
-            "method": "GET",
-            "url": "/favicon.ico",
-            "time": 1584476463264
-        },
-        {
-            "method": "GET",
-            "url": "/about",
-            "time": 1584476472832
-        },
-        {
-            "method": "GET",
-            "url": "/favicon.ico",
-            "time": 1584476472924
-        },
-        {
-            "method": "PATCH",
-            "url": "/about",
-            "time": 1584476482770
-        },
-        {
-            "method": "PUT",
-            "url": "/news",
-            "time": 1584476488610
-        },
-        {
-            "method": "DELETE",
-            "url": "/news",
-            "time": 1584476491590
+            "time": 1584545067414
         },
         {
             "method": "POST",
             "url": "/contacts",
-            "time": 1584476510291
+            "time": 1584545270073
+        },
+        {
+            "method": "PUT",
+            "url": "/news",
+            "time": 1584545276265
+        },
+        {
+            "method": "DELETE",
+            "url": "/news",
+            "time": 1584545278990
+        },
+        {
+            "method": "POST",
+            "url": "/team",
+            "time": 1584545287113
+        },
+        {
+            "method": "GET",
+            "url": "/new",
+            "time": 1584545588317
+        },
+        {
+            "method": "GET",
+            "url": "/favicon.ico",
+            "time": 1584545588462
+        },
+        {
+            "method": "POST",
+            "url": "/contacts",
+            "time": 1584545601573
+        },
+        {
+            "method": "GET",
+            "url": "/requests",
+            "time": 1584545612024
+        },
+        {
+            "method": "GET",
+            "url": "/favicon.ico",
+            "time": 1584545612099
+        },
+        {
+            "method": "GET",
+            "url": "/requests",
+            "time": 1584545665904
+        },
+        {
+            "method": "GET",
+            "url": "/favicon.ico",
+            "time": 1584545665959
+        },
+        {
+            "method": "DELETE",
+            "url": "/about",
+            "time": 1584545736980
         }
     ]
 }
