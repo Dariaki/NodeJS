@@ -3,39 +3,42 @@
 // Organize all information inside one JSON file;
 // Write every request info to array in json file.
 
+const util = require('util');
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
 
-const requestInfo = {};
-requestInfo.logs = [];
+const port = 3000;
 
-fs.writeFile(path.join(__dirname, 'requests.json'), JSON.stringify(requestInfo, null, 4), () => {
-  console.log('Json file was created!')
-});
+const readFileAsync = util.promisify(fs.readFile);
+const writeFileAsync = util.promisify(fs.writeFile);
 
-
-http.createServer((request, response) => {
+http.createServer(async (request, response) => {
 
   if(request.url === '/requests') {
-    response.writeHead(200, {'Content-type': 'text/json'});
-    response.end(JSON.stringify(requestInfo));
+      response.writeHead(200, {'Content-type': 'application/json'});
+      const data = await readFileAsync(path.join(__dirname, 'requests.json'), 'utf-8');
+
+      return response.end(data);
   }
 
-
-  requestInfo.logs.push({
+  const data = await readFileAsync(path.join(__dirname, 'requests.json'), 'utf-8');
+  const dataParsed = JSON.parse(data);
+  dataParsed.logs.push({
     method: request.method,
     url: request.url,
     time: new Date().getTime()
   });
 
-  fs.writeFile(path.join(__dirname, 'requests.json'), JSON.stringify(requestInfo, null, 4), () => {
-    console.log('Json file was updated!')
-  });
+  try {
+    await writeFileAsync(path.join(__dirname, 'requests.json'), JSON.stringify(dataParsed, null, 4), 'utf-8');
+  } catch(e) {
+    console.log('Error happened:', e);
+  }
 
-  response.writeHead(200, {'Content-type': 'text/json'});
-  response.end(JSON.stringify({status: 'OK'}));
+  response.writeHead(200, {'Content-type': 'application/json'});
+  return response.end(JSON.stringify({status: 'OK'}));
 
-}).listen(3000, () => {
+}).listen(port, () => {
   console.log('Server is listening on 3000...');
 });
