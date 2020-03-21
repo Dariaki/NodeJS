@@ -4,14 +4,19 @@ const express = require('express');
 const app = express();
 const port = process.env.port || 3000;
 
+const login = require('./routes/login');
+const personal = require('./routes/personal');
+
+app.set('view engine', 'ejs');
+app.use('/login', login);
+app.use('/personal', personal);
+
 // Home Route
-app.get('/', (request, response) => {
-  response.send('Hello world!')
+app.get('/', (req, res) => {
+  res.render('index')
 });
 
-app.get('/sweethome', (request, response) => {
-  response.render('<h1>Sweet home alabama!</h1>')
-});
+
 
 // Start Server
 app.listen(port, (error) => {

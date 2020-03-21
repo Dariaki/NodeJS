@@ -1,0 +1,35 @@
+.header {
+    padding: 2em 1em;
+    text-align: center;
+    color: #ffffff;
+    background-color: #006f6f;
+}
+
+.header__content {
+    display: flex;
+    justify-content: space-between;
+    vertical-align: center;
+}
+
+.header__logo {
+    font-weight: 800;
+    font-family: "DejaVu", "DejaVu Serif", serif;
+    font-size: 20px;
+}
+
+.header__log {
+    display: flex;
+    justify-content: space-between;
+    vertical-align: center;
+}
+
+.header__link {
+    margin: 1% 0;
+    padding: 1% 2%;
+    border: 3px solid #ffffff;
+}
+
+.header__link:hover {
+    background-color: #ffffff;
+    color: #006f6f;
+}
