@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>NotesApp</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header__content">
+            <div class="header__logo">
+                <a href="/" class="header__logo-link">NotesApp</a>
+            </div>
+                <h1>Welcome <%= user.name %>!</h1>
+                <div class="header__log">
+                    <form method="POST" action="/logout" class="logout__form">
+                        <button type="submit" class="header__link header__login-link">Log out</button>
+                    </form>
+                    <form method="POST" action="/delete-account" class="logout__form">
+                        <button type="submit" class="header__link header__login-link">Delete Account</button>
+                    </form>
+                </div>
+
+        </div>
+    </header>
+
+    <section>
+        <h1 class="section__title">Notes</h1>
+        <div>
+            <form>
+                <input name="notename">
+                <button>Create Note</button>
+            </form>
+            <ul class="notes__list">
+                <li class="notes__item">Note 1 <button>Delete</button></li>
+                <li class="notes__item">Note 2 <button>Delete</button></li>
+                <li class="notes__item">Note 3 <button>Delete</button></li>
+                <li class="notes__item">Note 4 <button>Delete</button></li>
+                <li class="notes__item">Note 5 <button>Delete</button></li>
+            </ul>
+        </div>
+    </section>
+    <%- include('./components/footer')%>
+
+    <script>
+        const logoutForm = document.querySelector('.logout__form');
+        logoutForm.addEventListener('submit', (event) => {
+          event.preventDefault();
+        })
+    </script>
+</body>
+</html>
+

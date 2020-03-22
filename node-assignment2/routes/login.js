@@ -2,13 +2,10 @@ const express = require('express');
 const router = express.Router();
 const secret = require('../config/auth').secret;
 const jwt = require('jsonwebtoken');
+const store = require('store');
 
-router.use((req, res, next) => {
-  console.log('This is LogIn middleware');
-  next();
-});
+const users = require('../data/users.json');
 
-let user = {name: 'dariaky@gmail.com', password: 'qwerty123'};
 
 router
   .get('/', (req, res) => {
@@ -16,11 +13,30 @@ router
   })
   .post('/', (req, res) => {
 
-    let jwt_token =  jwt.sign(
-      user,
-      secret);
+    let { logemail, logpassword } = req.body;
 
-      res.json({jwt_token});
+    let [ user ] = users.users.filter(user => (user.email === logemail && user.password === logpassword));
+
+    if(!user) {
+
+      res.status(401).json({status: 'You need to register first'});
+      return res.redirect('/registration');
+
+    } else {
+
+      let jwt_token =  jwt.sign(
+        user,
+        secret);
+
+      store.set('token', jwt_token);
+
+      return res.redirect('/personal')
+    }
+
+
+    // before sending token, checking here if we have such a user in our users.json, if - ask to register
+    // if yes - provide user with token and redirect to the personal page
+
 
   });
 

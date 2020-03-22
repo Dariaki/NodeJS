@@ -1,14 +1,31 @@
 const express = require('express');
+const bodyParser = require('body-parser');
+const path = require('path');
 
-// Init App
+// Initiating App
 const app = express();
 const port = process.env.port || 3000;
 
+// Import Routes
 const login = require('./routes/login');
+// const logout = require('./routes/logout');
+const registration = require('./routes/registration');
 const personal = require('./routes/personal');
 
+// Parsing data from our forms
+app.use(bodyParser.urlencoded({extended: true}));
+
+// Serving html with css
+app.use('/static', express.static('public'));
+
+// Setting ejs
 app.set('view engine', 'ejs');
+
+// Making routes
 app.use('/login', login);
+// app.use('/logout', logout);
+
+app.use('/registration', registration);
 app.use('/personal', personal);
 
 // Home Route
@@ -16,6 +33,9 @@ app.get('/', (req, res) => {
   res.render('index')
 });
 
+app.use("*", (req, res) => {
+  res.status(404).render('not-found');
+});
 
 
 // Start Server

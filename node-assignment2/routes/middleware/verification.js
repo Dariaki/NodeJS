@@ -1,16 +1,15 @@
-// TOKEN FORMAT:
-// Authorization: Bearer <access_token>
-
+const store = require('store');
 
 const verifyToken = (req, res, next) => {
-  // Get authorization header value
-  const bearerHeader = req.headers['authorization'];
 
-  if (typeof bearerHeader === 'undefined') {
+  const token = store.get('token');
+
+  if (!token) {
+
       res.sendStatus(403);
   } else {
-    let bearerToken = bearerHeader.split(' ')[1];
-    req.token = bearerToken;
+
+    req.token = token;
 
   }
   next();

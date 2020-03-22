@@ -6,12 +6,20 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Notes App</title>
+    <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-    <%- include('./components/header/header')%>
-    <div>
-        BODY
-    </div>
-    <%- include('./components/footer/footer')%>
+    <%- include('./components/header')%>
+    <section class="intro">
+        <div class="intro__container">
+            <h1 class="intro__title">
+                Welcome To Your Personal Notes Application!
+            </h1>
+            <p class="intro__subtitle">
+                Please register to start making notes
+            </p>
+        </div>
+    </section>
+    <%- include('./components/footer')%>
 </body>
 </html>

@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css?family=Liu+Jian+Mao+Cao&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helventica, sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+.section__title {
+    text-align: center;
+    font-size: 30px;
+    padding: 2% 0;
+}
+
+/* HEADER */
+.header {
+    padding: 2em 1em;
+    text-align: center;
+    color: #ffffff;
+    background-color: #006f6f;
+}
+
+.header__content {
+    display: flex;
+    justify-content: space-between;
+    vertical-align: center;
+}
+
+.header__logo {
+    height: 50px;
+    line-height: 50px;
+}
+
+.header__logo-link {
+    color: #ffffff;
+    letter-spacing: 1.2px;
+    font-size: 36px;
+    font-weight: 800;
+    font-family: 'Liu Jian Mao Cao', cursive;
+    white-space: nowrap;
+}
+
+.header__log {
+    display: flex;
+    justify-content: space-between;
+    vertical-align: center;
+}
+
+.header__link {
+    color: white;
+    margin: 0 15px;
+    padding: 15px 20px;
+    border: 3px solid #ffffff;
+    white-space: nowrap;
+}
+
+.header__link:hover {
+    background-color: #ffffff;
+    color: #006f6f;
+}
+
+
+/* MAIN SECTION */
+
+.intro {
+    background-color: #d3d3d3;
+}
+
+.intro__container {
+    padding: 15% 2%;
+}
+
+.intro__title {
+    font-size: 30px;
+    padding: 2% 0;
+    text-align: center;
+}
+
+.intro__subtitle {
+    text-align: center;
+}
+
+
+/* LOGIN PAGE */
+
+.login, .registration {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 5%;
+    background-color: #d3d3d3;
+}
+
+
+.form {
+    display: flex;
+    flex-direction: column;
+    border: 5px solid #58aaae;
+    box-shadow: 3px 3px 12px grey;
+    width: 30em;
+    margin: 0;
+    padding: 2%;
+    text-align: center;
+}
+
+.form__container {
+    margin: 15px 0;
+}
+
+.form__input {
+    border: none;
+    padding: 10px;
+    width: 60%;
+    border-radius: 3px;
+    outline: none;
+    text-indent: 10px;
+}
+
+.form__label {
+    width: 85px;
+    display: inline-block;
+}
+
+.form__submit-button {
+    color: white;
+    font-weight: 700;
+    padding: 3%;
+    width: 150px;
+    outline: none;
+    border: none;
+    background-color: #006f6f;
+}
+
+.form__submit-button:hover {
+    background-color: #005151;
+}
+
+
+/* FOOTER */
+
+.footer {
+    padding: 3em 1em;
+    text-align: center;
+    color: #ffffff;
+    font-size: 20px;
+    background-color: #006f6f;
+}

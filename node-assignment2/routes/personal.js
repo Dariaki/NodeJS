@@ -10,11 +10,13 @@ const verifyToken = require('./middleware/verification');
 router
   .get('/', verifyToken, (req, res) => {
 
-    jwt.verify(req.token, secret, (error, data) => {
+    jwt.verify(req.token, secret, (error, user) => {
       if (error) {
-        res.send('Authorization failed');
+        return res.send('Authorization failed');
+
       } else {
-        res.send({data})
+
+        return res.render('personal', {user})
       }
     })
 
