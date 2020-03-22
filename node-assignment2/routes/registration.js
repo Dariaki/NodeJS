@@ -16,24 +16,29 @@ router
 
   .post('/', async (req, res) => {
 
-    const usersFileData = await readFileAsync(path.join(__dirname, '..', 'data', 'users.json'), 'utf-8');
-    const dataParsed = JSON.parse(usersFileData);
-
-    dataParsed.users.push({
-      id: new Date().getTime(),
-      name: req.body.name,
-      email: req.body.email,
-      password: req.body.password,
-      notes: []
-    });
-
     try {
-      await writeFileAsync(path.join(__dirname, '..', 'data', 'users.json'), JSON.stringify(dataParsed, null, 4), 'utf-8');
-    } catch(err) {
-      console.log('Impossible to write a file:', err);
+      const usersFileData = await readFileAsync(path.join(__dirname, '..', 'data', 'users.json'), 'utf-8');
+      const dataParsed = JSON.parse(usersFileData);
+
+      dataParsed.users.push({
+        id: new Date().getTime(),
+        name: req.body.name,
+        email: req.body.email,
+        password: req.body.password,
+        notes: []
+      });
+
+      try {
+        await writeFileAsync(path.join(__dirname, '..', 'data', 'users.json'), JSON.stringify(dataParsed, null, 4), 'utf-8');
+      } catch(err) {
+        console.log('Impossible to write a file:', err);
+      }
+
+      return res.redirect('/login')
+    } catch {
+      return res.redirect('/registration')
     }
 
-    return res.redirect('/login')
 
   });
 
