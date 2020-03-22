@@ -6,11 +6,15 @@ const path = require('path');
 const app = express();
 const port = process.env.port || 3000;
 
+const methodOverride = require('method-override');
+
 // Import Routes
 const login = require('./routes/login');
-// const logout = require('./routes/logout');
+const logout = require('./routes/logout');
 const registration = require('./routes/registration');
 const personal = require('./routes/personal');
+
+app.use(methodOverride('_method'));
 
 // Parsing data from our forms
 app.use(bodyParser.urlencoded({extended: true}));
@@ -23,7 +27,7 @@ app.set('view engine', 'ejs');
 
 // Making routes
 app.use('/login', login);
-// app.use('/logout', logout);
+app.use('/logout', logout);
 
 app.use('/registration', registration);
 app.use('/personal', personal);

@@ -16,7 +16,7 @@
             </div>
                 <h1>Welcome <%= user.name %>!</h1>
                 <div class="header__log">
-                    <form method="POST" action="/logout" class="logout__form">
+                    <form method="POST" action="/logout?_method=DELETE" class="logout__form">
                         <button type="submit" class="header__link header__login-link">Log out</button>
                     </form>
                     <form method="POST" action="/delete-account" class="logout__form">
@@ -45,12 +45,23 @@
     </section>
     <%- include('./components/footer')%>
 
-    <script>
-        const logoutForm = document.querySelector('.logout__form');
-        logoutForm.addEventListener('submit', (event) => {
-          event.preventDefault();
-        })
-    </script>
+    <!--<script>-->
+        <!--const logoutForm = document.querySelector('.logout__form');-->
+        <!--logoutForm.addEventListener('submit', (event) => {-->
+          <!--event.preventDefault();-->
+          <!--fetch("/logout",-->
+            <!--{-->
+              <!--headers: {-->
+                <!--'Accept': 'application/json',-->
+                <!--'Content-Type': 'application/json'-->
+              <!--},-->
+              <!--method: "POST",-->
+              <!--body: JSON.stringify({a: 1, b: 2})-->
+            <!--})-->
+            <!--.then(function(res){ console.log(res) })-->
+            <!--.catch(function(res){ console.log(res) })-->
+        <!--})-->
+    <!--</script>-->
 </body>
 </html>
 
