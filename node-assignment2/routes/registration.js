@@ -9,7 +9,6 @@ const path = require('path');
 const readFileAsync = util.promisify(fs.readFile);
 const writeFileAsync = util.promisify(fs.writeFile);
 
-
 router
   .get('/', (req, res) => {
     return res.render('registration');
