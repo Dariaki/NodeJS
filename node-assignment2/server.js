@@ -20,6 +20,12 @@ app.use(methodOverride('_method'));
 // Parsing data from our forms
 app.use(bodyParser.urlencoded({extended: true}));
 
+// Parse URL-encoded bodies (as sent by HTML forms)
+app.use(express.urlencoded());
+
+// Parse JSON bodies (as sent by API clients)
+app.use(express.json());
+
 // Serving html with css
 app.use('/static', express.static('public'));
 
