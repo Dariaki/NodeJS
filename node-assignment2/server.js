@@ -11,6 +11,7 @@ const methodOverride = require('method-override');
 // Import Routes
 const login = require('./routes/login');
 const logout = require('./routes/logout');
+const deleteAccount = require('./routes/delete-account');
 const registration = require('./routes/registration');
 const personal = require('./routes/personal');
 
@@ -28,6 +29,7 @@ app.set('view engine', 'ejs');
 // Making routes
 app.use('/login', login);
 app.use('/logout', logout);
+app.use('/delete-account', deleteAccount);
 
 app.use('/registration', registration);
 app.use('/personal', personal);

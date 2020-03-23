@@ -11,6 +11,10 @@ body {
     font-family: Arial, Helventica, sans-serif;
 }
 
+ul {
+    list-style-type: none;
+}
+
 a {
     text-decoration: none;
 }
@@ -19,6 +23,7 @@ a {
     text-align: center;
     font-size: 30px;
     padding: 2% 0;
+    color: #073a3f;
 }
 
 /* HEADER */
@@ -38,6 +43,12 @@ a {
 .header__logo {
     height: 50px;
     line-height: 50px;
+}
+
+.header__logname {
+    height: 50px;
+    line-height: 50px;
+    white-space: nowrap;
 }
 
 .header__logo-link {
@@ -63,7 +74,19 @@ a {
     white-space: nowrap;
 }
 
-.header__link:hover {
+.header__button {
+    color: white;
+    font-size: 15px;
+    margin: 0 15px;
+    padding: 15px 20px;
+    border: 3px solid #ffffff;
+    white-space: nowrap;
+    background-color: #006f6f;
+}
+
+
+.header__link:hover,
+.header__button:hover {
     background-color: #ffffff;
     color: #006f6f;
 }
@@ -154,4 +177,75 @@ a {
     color: #ffffff;
     font-size: 20px;
     background-color: #006f6f;
+}
+
+
+/* PERSONAL PAGE */
+
+.notes__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1% 0 3%;
+}
+
+.notes__form {
+    text-align: center;
+    padding-bottom: 3%;
+}
+
+.notes__form-input-container {
+    padding-bottom: 10%;
+}
+
+.notes__input {
+    width: 300px;
+    outline: none;
+    height: 40px;
+    border-radius: 4px;
+    border: 2px solid #006f6f;
+    box-shadow: 2px 2px 10px #465a5c;
+    text-indent: 10px;
+}
+
+.notes__create-button,
+.notes__item-button {
+    white-space: nowrap;
+    width: 180px;
+    padding: 5%;
+    font-weight: 600;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: #ffffff;
+    background-color: #006f6f;
+}
+
+.notes__item-button {
+    width: 100px;
+}
+
+.notes__create-button:hover,
+.notes__item-button:hover {
+    background-color: #005151;
+}
+
+.notes__list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.notes__item {
+    flex-basis: 30%;
+    margin: 10px;
+    padding: 30px;
+    border: 2px solid #006f6f;
+    box-shadow: 2px 2px 10px #465a5c;
+}
+
+.notes__button-container {
+    margin-top: 10%;
 }

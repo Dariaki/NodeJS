@@ -6,6 +6,8 @@ const util = require('util');
 const fs = require('fs');
 const path = require('path');
 
+const bcrypt = require('bcrypt');
+
 const readFileAsync = util.promisify(fs.readFile);
 const writeFileAsync = util.promisify(fs.writeFile);
 
@@ -20,11 +22,13 @@ router
       const usersFileData = await readFileAsync(path.join(__dirname, '..', 'data', 'users.json'), 'utf-8');
       const dataParsed = JSON.parse(usersFileData);
 
+      const hasedPassword = await bcrypt.hash(req.body.password, 10);
+
       dataParsed.users.push({
         id: new Date().getTime(),
         name: req.body.name,
         email: req.body.email,
-        password: req.body.password,
+        password: hasedPassword,
         notes: []
       });
 

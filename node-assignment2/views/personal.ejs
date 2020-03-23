@@ -14,13 +14,13 @@
             <div class="header__logo">
                 <a href="/" class="header__logo-link">NotesApp</a>
             </div>
-                <h1>Welcome <%= user.name %>!</h1>
+                <h1 class="header__logname">Welcome <%= user.name %>!</h1>
                 <div class="header__log">
                     <form method="POST" action="/logout?_method=DELETE" class="logout__form">
-                        <button type="submit" class="header__link header__login-link">Log out</button>
+                        <button type="submit" class="header__button header__logout-link">Log out</button>
                     </form>
-                    <form method="POST" action="/delete-account" class="logout__form">
-                        <button type="submit" class="header__link header__login-link">Delete Account</button>
+                    <form method="POST" action="/delete-account?_method=DELETE" class="logout__form">
+                        <button type="submit" class="header__button header__delete-link">Delete Account</button>
                     </form>
                 </div>
 
@@ -29,39 +29,27 @@
 
     <section>
         <h1 class="section__title">Notes</h1>
-        <div>
-            <form>
-                <input name="notename">
-                <button>Create Note</button>
+        <div class="notes__container">
+            <form class="notes__form">
+                <div class="notes__form-input-container">
+                    <input name="notename" class="notes__input">
+                </div>
+                <button class="notes__create-button">Create Note</button>
             </form>
             <ul class="notes__list">
-                <li class="notes__item">Note 1 <button>Delete</button></li>
-                <li class="notes__item">Note 2 <button>Delete</button></li>
-                <li class="notes__item">Note 3 <button>Delete</button></li>
-                <li class="notes__item">Note 4 <button>Delete</button></li>
-                <li class="notes__item">Note 5 <button>Delete</button></li>
+                <% for(let i = 0; i < user.notes.length; i++){ %>
+                    <li class="notes__item">
+                        <%= user.notes[i].text %>
+                        <div class="notes__button-container">
+                            <button class="notes__item-button">Delete</button>
+                        </div>
+                    </li>
+                <% } %>
             </ul>
         </div>
     </section>
     <%- include('./components/footer')%>
 
-    <!--<script>-->
-        <!--const logoutForm = document.querySelector('.logout__form');-->
-        <!--logoutForm.addEventListener('submit', (event) => {-->
-          <!--event.preventDefault();-->
-          <!--fetch("/logout",-->
-            <!--{-->
-              <!--headers: {-->
-                <!--'Accept': 'application/json',-->
-                <!--'Content-Type': 'application/json'-->
-              <!--},-->
-              <!--method: "POST",-->
-              <!--body: JSON.stringify({a: 1, b: 2})-->
-            <!--})-->
-            <!--.then(function(res){ console.log(res) })-->
-            <!--.catch(function(res){ console.log(res) })-->
-        <!--})-->
-    <!--</script>-->
 </body>
 </html>
 
