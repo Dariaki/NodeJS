@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>NotesApp</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header__content">
+            <div class="header__logo">
+                <a href="/" class="header__logo-link">NotesApp</a>
+            </div>
+            <div class="header__log">
+                <h1 class="header__logname">Welcome <%= user.name %>!</h1>
+                <form method="POST" action="/logout?_method=DELETE" class="logout__form">
+                    <button type="submit" class="header__button header__logout-link">Log out</button>
+                </form>
+                <form method="DELETE" action="/delete-account" class="logout__form">
+                    <input name="id" value=<%= user.id %> type="hidden">
+                    <button type="submit" class="header__button header__delete-link">Delete Account</button>
+                </form>
+            </div>
+
+        </div>
+    </header>
+
+    <section class="personal-section">
+        <h1 class="section__title">Notes</h1>
+        <div class="notes__container">
+            <form class="notes__form" method="POST" action="personal/notes">
+                <input name="id" value=<%= user.id %> type="hidden">
+                <div class="notes__form-input-container">
+                    <input name="notetext" class="notes__input">
+                </div>
+                <button type="submit" class="notes__create-button">Create Note</button>
+            </form>
+            <ul class="notes__list">
+                <% for(let i = 0; i < user.notes.length; i++){ %>
+                    <li class="notes__item">
+                        <%= user.notes[i].text %>
+                        <div class="notes__button-container">
+                            <button class="notes__item-button">Delete</button>
+                        </div>
+                    </li>
+                <% } %>
+            </ul>
+        </div>
+    </section>
+    <%- include('./components/footer')%>
+
+</body>
+</html>
+

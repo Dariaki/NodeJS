@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Notes App</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <%- include('./components/header')%>
+    <secton class="login">
+        <h1 class="section__title">Sign In</h1>
+        <form method="POST" class="form login__form" action="/login">
+            <div class="form__container">
+                <label for="user-email" class="form__label">Email</label>
+                <input id="user-email" name="logemail" placeholder="john@gmail.com" class="form__input">
+            </div>
+            <div class="form__container">
+                <label for="user-password" class="form__label">Password</label>
+                <input id="user-password" name="logpassword" class="form__input">
+            </div>
+            <div class="form__container">
+                <button type="submit" class="form__submit-button">Sign In</button>
+            </div>
+        </form>
+    </secton>
+    <%- include('./components/footer')%>
+
+</body>
+</html>

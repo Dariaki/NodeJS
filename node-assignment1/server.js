@@ -24,9 +24,12 @@ http.createServer(async (request, response) => {
 
   const data = await readFileAsync(path.join(__dirname, 'requests.json'), 'utf-8');
   const dataParsed = JSON.parse(data);
+
+  const { method, url } = request;
+
   dataParsed.logs.push({
-    method: request.method,
-    url: request.url,
+    method,
+    url,
     time: new Date().getTime()
   });
 
